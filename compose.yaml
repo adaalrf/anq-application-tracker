@@ -1,0 +1,17 @@
+services:
+  database:
+    image: docker.io/library/postgres:17-alpine
+    environment:
+      POSTGRES_DB: application_tracker
+      POSTGRES_PASSWORD: local-development-only
+    ports:
+      - '127.0.0.1:55433:5432'
+    volumes:
+      - development-database:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d application_tracker']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  development-database:

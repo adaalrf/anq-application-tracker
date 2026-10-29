@@ -1,0 +1,31 @@
+/* ANQ token contract: shared roles and metrics; this project owns its palette. */
+:root {
+  --color-canvas: #f7f7fa;
+  --color-surface: #ffffff;
+  --color-surface-soft: #efedf7;
+  --color-ink: #34364a;
+  --color-muted: #666777;
+  --color-brand: #515a87;
+  --color-brand-hover: #424b76;
+  --color-sidebar: #303349;
+  --color-on-brand: #f7f7fc;
+  --color-sidebar-muted: #cecee0;
+  --color-line: #dedfea;
+  --color-danger: #953b32;
+  --color-focus: #515a87;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --text-small: 0.8125rem;
+  --text-body: 0.9375rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --radius-small: 0.375rem;
+  --radius-panel: 0.75rem;
+  --width-sidebar: 15rem;
+  --width-content: 48rem;
+}
