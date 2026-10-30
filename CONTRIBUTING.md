@@ -19,8 +19,8 @@ No production credentials or remote service is needed.
 
 `npm run dev:local` is the same combined workflow. `dev:server` loads `.env` and
 watches only the API; `dev:client` runs Vite separately for manual configurations.
-If a local port is occupied, stop the process you own or follow the README's
-manual configuration route. Setup/dev do not stop someone else's process or
+If a local port is occupied, stop the process you own or configure `.env` from
+`.env.example` and use the separate server/client commands. Setup/dev do not stop someone else's process or
 replace its configuration. Do not copy a production `.env` into local setup.
 
 ## Where changes belong
@@ -83,3 +83,7 @@ Never seed or reset production. Cover letters are saved plain text, not uploaded
 files; follow-ups are an in-app view, not email notifications. Saved records are
 durable; unsaved forms only have discard warnings. See [operations](docs/OPERATIONS.md)
 for the optional built-image persistence/recovery test.
+
+For visual changes, use the local CSS tokens and preserve contrast, visible
+keyboard focus, readable errors and text labels for status. Colour alone must
+not convey state. Keep screenshots fictional.
