@@ -1,5 +1,7 @@
 # ANQ Next Step
 
+[![Checks](https://github.com/adaalrf/anq-application-tracker/actions/workflows/check.yml/badge.svg)](https://github.com/adaalrf/anq-application-tracker/actions/workflows/check.yml)
+
 A private, single-owner job application tracker built with React, TypeScript,
 Fastify and PostgreSQL. Keep applications, cover letters, conversations and the
 next action together. It does not submit applications or read your email.
