@@ -1,3 +1,5 @@
+import { navigationUrl } from '../navigation.js';
+import { NavigationShell, BackToTop } from '../components/NavigationControls.js';
 import { type ReactNode } from 'react';
 import type { Session, View } from '../types.js';
 import { type Activity, type Application } from '../../shared/model.js';
@@ -22,15 +24,18 @@ export function Workspace({
       <a className="skip" href="#content">
         Skip to content
       </a>
-      <aside className="sidebar">
-        <a className="logo" href={import.meta.env.BASE_URL}>
-          <span>
-            <Icon name="arrow" size={23} />
-          </span>
-          <strong>
-            ANQ Next Step<small>APPLICATION WORKSPACE</small>
-          </strong>
-        </a>
+      <NavigationShell
+        brand={
+          <a className="logo" href={import.meta.env.BASE_URL}>
+            <span>
+              <Icon name="arrow" size={23} />
+            </span>
+            <strong>
+              ANQ Next Step<small>APPLICATION WORKSPACE</small>
+            </strong>
+          </a>
+        }
+      >
         <p className="nav-label">YOUR WORKSPACE</p>
         <nav aria-label="Workspace">
           {(
@@ -40,11 +45,23 @@ export function Workspace({
               ['activity', 'journal', 'Activity'],
             ] as const
           ).map(([id, icon, label]) => (
-            <button
+            <a
+              href={navigationUrl(window.location.href, { view: id, applicationId: null })}
               key={id}
               className={view === id ? 'nav-item active' : 'nav-item'}
               aria-current={view === id ? 'page' : undefined}
-              onClick={() => navigate(id)}
+              onClick={(event) => {
+                if (
+                  event.button ||
+                  event.metaKey ||
+                  event.ctrlKey ||
+                  event.shiftKey ||
+                  event.altKey
+                )
+                  return;
+                event.preventDefault();
+                navigate(id);
+              }}
             >
               <Icon name={icon} />
               {label}
@@ -53,7 +70,7 @@ export function Workspace({
                   {due.length}
                 </span>
               )}
-            </button>
+            </a>
           ))}
         </nav>
         <div className="sidebar-note">
@@ -75,7 +92,8 @@ export function Workspace({
             </button>
           )}
         </div>
-      </aside>
+      </NavigationShell>
+      <BackToTop />
       <div className="workspace">
         <header className="topbar">
           <span>

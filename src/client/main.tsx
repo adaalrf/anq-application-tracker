@@ -9,3 +9,7 @@ createRoot(document.getElementById('root')!).render(
 );
 
 import './tracker.css';
+
+import './navigation.css';
+
+import './dark.css';

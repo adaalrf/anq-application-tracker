@@ -1,0 +1,391 @@
+/* Dark equivalents for component accents; the main palette lives in tokens.css. */
+@media screen and (prefers-color-scheme: dark) {
+  input,
+  select,
+  textarea {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
+  ::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+  }
+  .primary {
+    color: var(--color-on-brand);
+  }
+  .sidebar,
+  .site-header,
+  aside {
+    --color-on-brand: #f2f7f5;
+  }
+
+  .topbar {
+    background: var(--color-surface);
+  }
+
+  .topbar strong {
+    color: var(--color-muted);
+  }
+
+  .export {
+    color: var(--color-muted);
+  }
+
+  .demo-banner {
+    border: 1px solid var(--color-line);
+    background: var(--color-positive-surface);
+    color: var(--color-positive);
+  }
+
+  .demo-tag {
+    border: 1px solid var(--color-line);
+  }
+
+  .stats strong {
+    color: var(--color-positive);
+  }
+
+  .stat-icon {
+    background: var(--color-positive-surface);
+    border: 1px solid var(--color-line);
+  }
+
+  .stat-icon.green {
+    background: var(--color-positive-surface);
+  }
+
+  .stat-icon.amber {
+    background: var(--color-warning-surface);
+    border-color: var(--color-line);
+  }
+
+  .panel-title > span {
+    background: var(--color-positive-surface);
+  }
+
+  input,
+  select,
+  textarea {
+    color: var(--color-positive);
+  }
+
+  .search {
+    border: 1px solid var(--color-line);
+  }
+
+  thead {
+    background: var(--color-positive-surface);
+  }
+
+  td {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  tbody tr:hover {
+    background: var(--color-positive-surface);
+  }
+
+  .server-avatar {
+    background: var(--color-positive-surface);
+  }
+
+  .server-avatar.valheim {
+    background: var(--color-info-surface);
+  }
+
+  .server-avatar.factorio {
+    background: var(--color-warning-surface);
+  }
+
+  .badge {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+  }
+
+  .badge.operational,
+  .badge.recorded,
+  .badge.completed {
+    background: var(--color-positive-surface);
+    border-color: var(--color-line);
+  }
+
+  .badge.degraded,
+  .badge.overdue,
+  .badge.planned {
+    background: var(--color-warning-surface);
+    border-color: var(--color-line);
+  }
+
+  .badge.failed {
+    color: var(--color-danger);
+    background: var(--color-danger-surface);
+    border-color: var(--color-line);
+  }
+
+  .text-button {
+    color: var(--color-positive);
+  }
+
+  .bottom-note {
+    border: 1px solid var(--color-line);
+    background: var(--color-positive-surface);
+  }
+
+  footer {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .empty h3 {
+    color: var(--color-positive);
+  }
+
+  .timeline li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .event-icon {
+    background: var(--color-positive-surface);
+  }
+
+  .event-icon.incident {
+    background: var(--color-warning-surface);
+  }
+
+  dialog {
+    border: 1px solid var(--color-line);
+  }
+
+  .error {
+    background: var(--color-danger-surface);
+    border: 1px solid var(--color-line);
+    color: var(--color-danger);
+  }
+
+  .notice {
+    background: var(--color-positive-surface);
+    border: 1px solid var(--color-line);
+  }
+
+  .login {
+    background: var(--color-positive-surface);
+  }
+
+  .login p.error {
+    color: var(--color-danger);
+  }
+
+  .demo-banner {
+    background: var(--color-info-surface);
+    border-color: var(--color-line);
+    color: var(--color-info);
+  }
+
+  .demo-tag {
+    border-color: var(--color-line);
+  }
+
+  .stat-icon {
+    background: var(--color-info-surface);
+    color: var(--color-info);
+    border-color: var(--color-line);
+  }
+
+  .stat-icon.green {
+    background: var(--color-positive-surface);
+    color: var(--color-positive);
+  }
+
+  .stat-icon.amber {
+    background: var(--color-warning-surface);
+    color: var(--color-warning);
+  }
+
+  .stats strong {
+    color: var(--color-info);
+  }
+
+  .stats strong small,
+  .stats > div > span:last-child {
+    color: var(--color-muted);
+  }
+
+  .page-heading p:last-child,
+  .eyebrow,
+  .detail-location,
+  .facts dt,
+  .server-notes p,
+  .form-help,
+  .field > label,
+  .checkbox {
+    color: var(--color-muted);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    color: var(--color-info);
+  }
+
+  .primary {
+    color: var(--color-on-brand);
+  }
+
+  .text-button,
+  .back-button,
+  .job-link {
+    color: var(--color-info);
+  }
+
+  .board-toolbar .search {
+    background: var(--color-surface);
+  }
+
+  .tabs button {
+    color: var(--color-muted);
+  }
+
+  .tabs button.selected {
+    background: var(--color-info-surface);
+    color: var(--color-info);
+  }
+
+  .tabs h2 > span {
+    background: var(--color-info-surface);
+  }
+
+  .board-column {
+    background: var(--color-info-surface);
+    border: 1px solid var(--color-line);
+  }
+
+  .column-title h2 > span {
+    background: var(--color-surface-soft);
+  }
+
+  .column-applied .column-title h2 > span {
+    background: var(--color-info-surface);
+  }
+
+  .column-interview .column-title h2 > span {
+    background: var(--color-purple-surface);
+  }
+
+  .column-offer .column-title h2 > span {
+    background: var(--color-positive-surface);
+  }
+
+  .column-title > span {
+    color: var(--color-muted);
+    background: var(--color-info-surface);
+  }
+
+  .column-empty {
+    color: var(--color-muted);
+    border: 1px dashed var(--color-line);
+  }
+
+  .application-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+  }
+
+  .application-card:hover:not(:disabled) {
+    background: var(--color-info-surface);
+    border-color: var(--color-line);
+  }
+
+  .company-monogram {
+    background: var(--color-info-surface);
+    color: var(--color-info);
+  }
+
+  .card-company {
+    color: var(--color-muted);
+  }
+
+  .application-card > strong {
+    color: var(--color-info);
+  }
+
+  .card-location {
+    color: var(--color-muted);
+  }
+
+  .card-divider {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .card-followup {
+    color: var(--color-muted);
+  }
+
+  .card-followup.is-due {
+    color: var(--color-warning);
+  }
+
+  .due-tag {
+    background: var(--color-warning-surface);
+    border: 1px solid var(--color-line);
+    color: var(--color-warning);
+  }
+
+  .badge {
+    background: var(--color-info-surface);
+    color: var(--color-muted);
+    border-color: var(--color-line);
+  }
+
+  .badge.stage-interview {
+    color: var(--color-purple);
+    background: var(--color-purple-surface);
+    border-color: var(--color-line);
+  }
+
+  .badge.stage-offer,
+  .badge.stage-accepted {
+    color: var(--color-positive);
+    background: var(--color-positive-surface);
+    border-color: var(--color-line);
+  }
+
+  .badge.stage-rejected,
+  .badge.stage-withdrawn {
+    color: var(--color-muted);
+    background: var(--color-danger-surface);
+    border-color: var(--color-line);
+  }
+
+  .list-footer {
+    color: var(--color-muted);
+  }
+
+  .event-icon {
+    background: var(--color-info-surface);
+    color: var(--color-info);
+  }
+
+  .event-notes {
+    color: var(--color-muted);
+  }
+
+  .event-meta,
+  footer,
+  .section-title span {
+    color: var(--color-muted);
+  }
+
+  .notice {
+    background: var(--color-info-surface);
+    border-color: var(--color-line);
+    color: var(--color-info);
+  }
+
+  .login {
+    background: var(--color-info-surface);
+  }
+
+  .login p {
+    color: var(--color-muted);
+  }
+}

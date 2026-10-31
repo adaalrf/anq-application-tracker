@@ -1,3 +1,5 @@
+import { checkNavigationTheme } from './navigation-theme.js';
+import { workspaceLink } from './workspace-link.js';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 import { mkdir } from 'node:fs/promises';
@@ -96,7 +98,7 @@ try {
     'https://example.test/jobs/42',
   );
   await expect(page.getByText('Prepare the project walkthrough.', { exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Follow-ups', exact: true }).click();
+  await workspaceLink(page, 'Follow-ups');
   await expect(page).toHaveURL(/view=followups/);
   await page.reload();
   await expect(
@@ -133,7 +135,7 @@ try {
   await page.getByLabel('Next action', { exact: true }).fill('Prepare interview examples');
   await page.getByRole('button', { name: 'Save follow-up', exact: true }).click();
   await expect(page.getByText(/Follow-up completed; no next date set/)).toBeVisible();
-  await page.getByRole('button', { name: 'Follow-ups', exact: true }).click();
+  await workspaceLink(page, 'Follow-ups');
   await expect(
     page.getByRole('button', { name: 'View Test developer at Test company', exact: true }),
   ).toHaveCount(0);
@@ -159,7 +161,8 @@ try {
   await expect(page.getByRole('button', { name: 'Sign in', exact: true })).toBeVisible();
   const demo = await createApp(pool, loadConfig({ DATABASE_URL: 'test', DEMO_MODE: 'true' }));
   apps.push(demo);
-  await page.goto(await demo.listen({ host: '127.0.0.1', port: 0 }));
+  const demoOrigin = await demo.listen({ host: '127.0.0.1', port: 0 });
+  await page.goto(demoOrigin);
   await expect(page.getByRole('button', { name: 'Add application', exact: true })).toBeDisabled();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
@@ -220,9 +223,9 @@ try {
     path: 'docs/screenshots/pipeline-mobile.png',
     fullPage: true,
   });
-  await page.getByRole('button', { name: 'Activity', exact: true }).click();
+  await workspaceLink(page, 'Activity');
   await expect(page.getByRole('heading', { name: 'Recent activity', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Applications', exact: true }).click();
+  await workspaceLink(page, 'Applications');
   await page.getByRole('button', { name: 'Archived', exact: true }).click();
   await expect(
     page.getByRole('button', {
@@ -230,6 +233,7 @@ try {
       exact: true,
     }),
   ).toBeVisible();
+  await checkNavigationTheme(page, demoOrigin, true);
   assert.deepEqual(errors, []);
   console.log(
     'Browser workflows passed: owner create, stage history, notes, persistence, follow-up, archive, export, logout, public demo, search, mobile layout and accessibility.',

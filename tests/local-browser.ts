@@ -1,3 +1,4 @@
+import { workspaceLink } from './workspace-link.js';
 import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import { parseEnv } from 'node:util';
@@ -40,7 +41,7 @@ try {
   ])
     await expect(page.getByLabel(name, { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
-  await page.getByRole('button', { name: 'Follow-ups', exact: true }).click();
+  await workspaceLink(page, 'Follow-ups');
   await page.reload();
   await expect(
     page.getByRole('heading', { name: 'Keep the conversation going.', exact: true }),
