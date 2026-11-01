@@ -13,3 +13,4 @@ import './tracker.css';
 import './navigation.css';
 
 import './dark.css';
+import './polish.css';

@@ -11,7 +11,8 @@ next action together. It does not submit applications or read your email.
 ![Application pipeline](docs/screenshots/pipeline-desktop.png)
 
 Navigation keeps the desktop sidebar and uses a labelled, keyboard-accessible mobile
-menu with a return-to-top control. Colours follow the device’s light/dark preference.
+menu with a return-to-top control. Colours follow the device’s light/dark preference
+until the appearance switch is used; that choice is saved in the browser.
 The browser suite checks both themes and mobile navigation with fictional data.
 
 ## Run locally

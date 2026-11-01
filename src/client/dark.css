@@ -1,391 +1,314 @@
-/* Dark equivalents for component accents; the main palette lives in tokens.css. */
-@media screen and (prefers-color-scheme: dark) {
-  input,
-  select,
-  textarea {
+/* Component accents follow the resolved appearance, including manual overrides. */
+@media screen {
+  :root[data-theme='dark'] input,
+  :root[data-theme='dark'] select,
+  :root[data-theme='dark'] textarea {
     background-color: var(--color-surface);
     color: var(--color-ink);
   }
-  ::placeholder {
+  :root[data-theme='dark'] ::placeholder {
     color: var(--color-muted);
     opacity: 1;
   }
-  .primary {
+  :root[data-theme='dark'] .primary {
     color: var(--color-on-brand);
   }
-  .sidebar,
-  .site-header,
-  aside {
+  :root[data-theme='dark'] .sidebar,
+  :root[data-theme='dark'] .site-header,
+  :root[data-theme='dark'] aside {
     --color-on-brand: #f2f7f5;
   }
-
-  .topbar {
+  :root[data-theme='dark'] .topbar {
     background: var(--color-surface);
   }
-
-  .topbar strong {
+  :root[data-theme='dark'] .topbar strong {
     color: var(--color-muted);
   }
-
-  .export {
+  :root[data-theme='dark'] .export {
     color: var(--color-muted);
   }
-
-  .demo-banner {
+  :root[data-theme='dark'] .demo-banner {
     border: 1px solid var(--color-line);
     background: var(--color-positive-surface);
     color: var(--color-positive);
   }
-
-  .demo-tag {
+  :root[data-theme='dark'] .demo-tag {
     border: 1px solid var(--color-line);
   }
-
-  .stats strong {
+  :root[data-theme='dark'] .stats strong {
     color: var(--color-positive);
   }
-
-  .stat-icon {
+  :root[data-theme='dark'] .stat-icon {
     background: var(--color-positive-surface);
     border: 1px solid var(--color-line);
   }
-
-  .stat-icon.green {
+  :root[data-theme='dark'] .stat-icon.green {
     background: var(--color-positive-surface);
   }
-
-  .stat-icon.amber {
+  :root[data-theme='dark'] .stat-icon.amber {
     background: var(--color-warning-surface);
     border-color: var(--color-line);
   }
-
-  .panel-title > span {
+  :root[data-theme='dark'] .panel-title > span {
     background: var(--color-positive-surface);
   }
-
-  input,
-  select,
-  textarea {
+  :root[data-theme='dark'] input,
+  :root[data-theme='dark'] select,
+  :root[data-theme='dark'] textarea {
     color: var(--color-positive);
   }
-
-  .search {
+  :root[data-theme='dark'] .search {
     border: 1px solid var(--color-line);
   }
-
-  thead {
+  :root[data-theme='dark'] thead {
     background: var(--color-positive-surface);
   }
-
-  td {
+  :root[data-theme='dark'] td {
     border-bottom: 1px solid var(--color-line);
   }
-
-  tbody tr:hover {
+  :root[data-theme='dark'] tbody tr:hover {
     background: var(--color-positive-surface);
   }
-
-  .server-avatar {
+  :root[data-theme='dark'] .server-avatar {
     background: var(--color-positive-surface);
   }
-
-  .server-avatar.valheim {
+  :root[data-theme='dark'] .server-avatar.valheim {
     background: var(--color-info-surface);
   }
-
-  .server-avatar.factorio {
+  :root[data-theme='dark'] .server-avatar.factorio {
     background: var(--color-warning-surface);
   }
-
-  .badge {
+  :root[data-theme='dark'] .badge {
     background: var(--color-surface);
     border: 1px solid var(--color-line);
   }
-
-  .badge.operational,
-  .badge.recorded,
-  .badge.completed {
+  :root[data-theme='dark'] .badge.operational,
+  :root[data-theme='dark'] .badge.recorded,
+  :root[data-theme='dark'] .badge.completed {
     background: var(--color-positive-surface);
     border-color: var(--color-line);
   }
-
-  .badge.degraded,
-  .badge.overdue,
-  .badge.planned {
+  :root[data-theme='dark'] .badge.degraded,
+  :root[data-theme='dark'] .badge.overdue,
+  :root[data-theme='dark'] .badge.planned {
     background: var(--color-warning-surface);
     border-color: var(--color-line);
   }
-
-  .badge.failed {
+  :root[data-theme='dark'] .badge.failed {
     color: var(--color-danger);
     background: var(--color-danger-surface);
     border-color: var(--color-line);
   }
-
-  .text-button {
+  :root[data-theme='dark'] .text-button {
     color: var(--color-positive);
   }
-
-  .bottom-note {
+  :root[data-theme='dark'] .bottom-note {
     border: 1px solid var(--color-line);
     background: var(--color-positive-surface);
   }
-
-  footer {
+  :root[data-theme='dark'] footer {
     border-top: 1px solid var(--color-line);
   }
-
-  .empty h3 {
+  :root[data-theme='dark'] .empty h3 {
     color: var(--color-positive);
   }
-
-  .timeline li {
+  :root[data-theme='dark'] .timeline li {
     border-bottom: 1px solid var(--color-line);
   }
-
-  .event-icon {
+  :root[data-theme='dark'] .event-icon {
     background: var(--color-positive-surface);
   }
-
-  .event-icon.incident {
+  :root[data-theme='dark'] .event-icon.incident {
     background: var(--color-warning-surface);
   }
-
-  dialog {
+  :root[data-theme='dark'] dialog {
     border: 1px solid var(--color-line);
   }
-
-  .error {
+  :root[data-theme='dark'] .error {
     background: var(--color-danger-surface);
     border: 1px solid var(--color-line);
     color: var(--color-danger);
   }
-
-  .notice {
+  :root[data-theme='dark'] .notice {
     background: var(--color-positive-surface);
     border: 1px solid var(--color-line);
   }
-
-  .login {
+  :root[data-theme='dark'] .login {
     background: var(--color-positive-surface);
   }
-
-  .login p.error {
+  :root[data-theme='dark'] .login p.error {
     color: var(--color-danger);
   }
-
-  .demo-banner {
+  :root[data-theme='dark'] .demo-banner {
     background: var(--color-info-surface);
     border-color: var(--color-line);
     color: var(--color-info);
   }
-
-  .demo-tag {
+  :root[data-theme='dark'] .demo-tag {
     border-color: var(--color-line);
   }
-
-  .stat-icon {
+  :root[data-theme='dark'] .stat-icon {
     background: var(--color-info-surface);
     color: var(--color-info);
     border-color: var(--color-line);
   }
-
-  .stat-icon.green {
+  :root[data-theme='dark'] .stat-icon.green {
     background: var(--color-positive-surface);
     color: var(--color-positive);
   }
-
-  .stat-icon.amber {
+  :root[data-theme='dark'] .stat-icon.amber {
     background: var(--color-warning-surface);
     color: var(--color-warning);
   }
-
-  .stats strong {
+  :root[data-theme='dark'] .stats strong {
     color: var(--color-info);
   }
-
-  .stats strong small,
-  .stats > div > span:last-child {
+  :root[data-theme='dark'] .stats strong small,
+  :root[data-theme='dark'] .stats > div > span:last-child {
     color: var(--color-muted);
   }
-
-  .page-heading p:last-child,
-  .eyebrow,
-  .detail-location,
-  .facts dt,
-  .server-notes p,
-  .form-help,
-  .field > label,
-  .checkbox {
+  :root[data-theme='dark'] .page-heading p:last-child,
+  :root[data-theme='dark'] .eyebrow,
+  :root[data-theme='dark'] .detail-location,
+  :root[data-theme='dark'] .facts dt,
+  :root[data-theme='dark'] .server-notes p,
+  :root[data-theme='dark'] .form-help,
+  :root[data-theme='dark'] .field > label,
+  :root[data-theme='dark'] .checkbox {
     color: var(--color-muted);
   }
-
-  button,
-  input,
-  select,
-  textarea {
+  :root[data-theme='dark'] button,
+  :root[data-theme='dark'] input,
+  :root[data-theme='dark'] select,
+  :root[data-theme='dark'] textarea {
     color: var(--color-info);
   }
-
-  .primary {
+  :root[data-theme='dark'] .primary {
     color: var(--color-on-brand);
   }
-
-  .text-button,
-  .back-button,
-  .job-link {
+  :root[data-theme='dark'] .text-button,
+  :root[data-theme='dark'] .back-button,
+  :root[data-theme='dark'] .job-link {
     color: var(--color-info);
   }
-
-  .board-toolbar .search {
+  :root[data-theme='dark'] .board-toolbar .search {
     background: var(--color-surface);
   }
-
-  .tabs button {
+  :root[data-theme='dark'] .tabs button {
     color: var(--color-muted);
   }
-
-  .tabs button.selected {
+  :root[data-theme='dark'] .tabs button.selected {
     background: var(--color-info-surface);
     color: var(--color-info);
   }
-
-  .tabs h2 > span {
+  :root[data-theme='dark'] .tabs h2 > span {
     background: var(--color-info-surface);
   }
-
-  .board-column {
+  :root[data-theme='dark'] .board-column {
     background: var(--color-info-surface);
     border: 1px solid var(--color-line);
   }
-
-  .column-title h2 > span {
+  :root[data-theme='dark'] .column-title h2 > span {
     background: var(--color-surface-soft);
   }
-
-  .column-applied .column-title h2 > span {
+  :root[data-theme='dark'] .column-applied .column-title h2 > span {
     background: var(--color-info-surface);
   }
-
-  .column-interview .column-title h2 > span {
+  :root[data-theme='dark'] .column-interview .column-title h2 > span {
     background: var(--color-purple-surface);
   }
-
-  .column-offer .column-title h2 > span {
+  :root[data-theme='dark'] .column-offer .column-title h2 > span {
     background: var(--color-positive-surface);
   }
-
-  .column-title > span {
+  :root[data-theme='dark'] .column-title > span {
     color: var(--color-muted);
     background: var(--color-info-surface);
   }
-
-  .column-empty {
+  :root[data-theme='dark'] .column-empty {
     color: var(--color-muted);
     border: 1px dashed var(--color-line);
   }
-
-  .application-card {
+  :root[data-theme='dark'] .application-card {
     background: var(--color-surface);
     border: 1px solid var(--color-line);
   }
-
-  .application-card:hover:not(:disabled) {
+  :root[data-theme='dark'] .application-card:hover:not(:disabled) {
     background: var(--color-info-surface);
     border-color: var(--color-line);
   }
-
-  .company-monogram {
+  :root[data-theme='dark'] .company-monogram {
     background: var(--color-info-surface);
     color: var(--color-info);
   }
-
-  .card-company {
+  :root[data-theme='dark'] .card-company {
     color: var(--color-muted);
   }
-
-  .application-card > strong {
+  :root[data-theme='dark'] .application-card > strong {
     color: var(--color-info);
   }
-
-  .card-location {
+  :root[data-theme='dark'] .card-location {
     color: var(--color-muted);
   }
-
-  .card-divider {
+  :root[data-theme='dark'] .card-divider {
     border-top: 1px solid var(--color-line);
   }
-
-  .card-followup {
+  :root[data-theme='dark'] .card-followup {
     color: var(--color-muted);
   }
-
-  .card-followup.is-due {
+  :root[data-theme='dark'] .card-followup.is-due {
     color: var(--color-warning);
   }
-
-  .due-tag {
+  :root[data-theme='dark'] .due-tag {
     background: var(--color-warning-surface);
     border: 1px solid var(--color-line);
     color: var(--color-warning);
   }
-
-  .badge {
+  :root[data-theme='dark'] .badge {
     background: var(--color-info-surface);
     color: var(--color-muted);
     border-color: var(--color-line);
   }
-
-  .badge.stage-interview {
+  :root[data-theme='dark'] .badge.stage-interview {
     color: var(--color-purple);
     background: var(--color-purple-surface);
     border-color: var(--color-line);
   }
-
-  .badge.stage-offer,
-  .badge.stage-accepted {
+  :root[data-theme='dark'] .badge.stage-offer,
+  :root[data-theme='dark'] .badge.stage-accepted {
     color: var(--color-positive);
     background: var(--color-positive-surface);
     border-color: var(--color-line);
   }
-
-  .badge.stage-rejected,
-  .badge.stage-withdrawn {
+  :root[data-theme='dark'] .badge.stage-rejected,
+  :root[data-theme='dark'] .badge.stage-withdrawn {
     color: var(--color-muted);
     background: var(--color-danger-surface);
     border-color: var(--color-line);
   }
-
-  .list-footer {
+  :root[data-theme='dark'] .list-footer {
     color: var(--color-muted);
   }
-
-  .event-icon {
+  :root[data-theme='dark'] .event-icon {
     background: var(--color-info-surface);
     color: var(--color-info);
   }
-
-  .event-notes {
+  :root[data-theme='dark'] .event-notes {
     color: var(--color-muted);
   }
-
-  .event-meta,
-  footer,
-  .section-title span {
+  :root[data-theme='dark'] .event-meta,
+  :root[data-theme='dark'] footer,
+  :root[data-theme='dark'] .section-title span {
     color: var(--color-muted);
   }
-
-  .notice {
+  :root[data-theme='dark'] .notice {
     background: var(--color-info-surface);
     border-color: var(--color-line);
     color: var(--color-info);
   }
-
-  .login {
+  :root[data-theme='dark'] .login {
     background: var(--color-info-surface);
   }
-
-  .login p {
+  :root[data-theme='dark'] .login p {
     color: var(--color-muted);
   }
 }

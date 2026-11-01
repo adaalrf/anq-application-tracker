@@ -2,6 +2,7 @@ import { type FormEvent } from 'react';
 import type { Session } from '../types.js';
 import { Icon } from '../components/Icon.js';
 import { Field } from '../components/Field.js';
+import { ThemeToggle } from '../components/ThemeToggle.js';
 export function SignIn({
   session,
   login,
@@ -16,6 +17,9 @@ export function SignIn({
   return (
     <main className="login">
       <div className="login-card">
+        <div className="login-appearance">
+          <ThemeToggle />
+        </div>
         <div className="login-brand">
           <Icon name="arrow" size={30} />
           <strong>ANQ Next Step</strong>
