@@ -35,6 +35,7 @@ export async function createApp(
   options: { logger?: boolean; staticRoot?: string } = {},
 ) {
   const app = Fastify({
+    trustProxy: config.trustProxy,
     logger: options.logger ?? false,
     bodyLimit: 131_072,
     requestTimeout: 15_000,

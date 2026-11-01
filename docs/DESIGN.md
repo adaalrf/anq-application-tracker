@@ -24,8 +24,12 @@ Owner mode requires configured credentials and HTTPS outside localhost. Scrypt
 password hashing, a rate-limited login, hashed random session tokens, HttpOnly/
 SameSite=Strict cookies, expiry, Origin checks, strict input schemas, parameterized
 SQL, and first-party Content Security Policy form the application boundary.
-Secure cookies are enabled on HTTPS. Forwarded-IP headers are not trusted; the
-login rate limit is per directly observed address and may group proxy clients.
+Secure cookies are enabled on HTTPS. Forwarded-IP headers are ignored by default.
+Deployments can set `TRUST_PROXY_IPS` to exact sanitizing-proxy addresses. The
+`self` value resolves current container addresses for verified rootless forwarding;
+it requires loopback-only published ports and a proxy that discards client-supplied
+forwarding headers. Limits remain per client IP and process, so shared public IPs
+still share a budget.
 
 Job links accept HTTP(S) only and use noreferrer in a new tab. Note text is never
 interpreted as HTML. No actual job-hunt files were imported to create the demo.
