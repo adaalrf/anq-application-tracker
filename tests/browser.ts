@@ -162,8 +162,42 @@ try {
   const demo = await createApp(pool, loadConfig({ DATABASE_URL: 'test', DEMO_MODE: 'true' }));
   apps.push(demo);
   const demoOrigin = await demo.listen({ host: '127.0.0.1', port: 0 });
+  let releaseRecords!: () => void;
+  const recordsReady = new Promise<void>((resolve) => {
+    releaseRecords = resolve;
+  });
+  await page.route('**/api/applications', async (route) => {
+    await recordsReady;
+    await route.continue();
+  });
   await page.goto(demoOrigin);
-  await expect(page.getByRole('button', { name: 'Add application', exact: true })).toBeDisabled();
+  await expect(page.getByRole('status')).toContainText('Opening your workspace');
+  await expect(page.locator('.stats')).toHaveCount(0);
+  await expect(page.getByText('No applications here yet.', { exact: true })).toHaveCount(0);
+  releaseRecords();
+  await expect(
+    page.getByRole('button', { name: 'Add application · Disabled in demo', exact: true }),
+  ).toBeDisabled();
+  await page.unroute('**/api/applications');
+  await page.route('**/api/applications', (route) =>
+    route.fulfill({
+      status: 503,
+      contentType: 'application/json',
+      body: JSON.stringify({ message: 'Temporary sample-data failure' }),
+    }),
+  );
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Couldn’t open the workspace' })).toBeVisible();
+  await expect(page.locator('.stats')).toHaveCount(0);
+  await page.unroute('**/api/applications');
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(page.getByRole('link', { name: 'A project by Martin Røed Flyum' })).toHaveAttribute(
+    'href',
+    'https://adaalrf.dev/work/anq-next-step/',
+  );
+  await expect(
+    page.getByRole('button', { name: 'Add application · Disabled in demo', exact: true }),
+  ).toBeDisabled();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
   await page.keyboard.press('Enter');

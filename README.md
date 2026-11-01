@@ -78,3 +78,5 @@ protected against database administrators.
 API/browser tests. [Design](docs/DESIGN.md) explains the data and authorization
 boundaries. [Operations](docs/OPERATIONS.md) covers deployment, durable storage,
 backups and recovery. Never point tests or demo seeding at a production database.
+
+For a read-only sample prepared on a known UTC date, set `DEMO_DATE_ANCHOR=YYYY-MM-DD` alongside `DEMO_MODE=true`. API dates then move together relative to today; stored records, text and pagination keys remain unchanged. Leave it blank for stored dates. Owner mode rejects this setting. The demo banner explains the relative dates.

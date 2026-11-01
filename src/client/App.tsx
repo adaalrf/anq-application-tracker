@@ -34,7 +34,6 @@ export function App() {
   const [loading, setLoading] = useState(true);
   const load = useCallback(async () => {
     const current = await api<Session>('/session');
-    setSession(current);
     if (current.demo || current.authenticated) {
       const [records, history] = await Promise.all([
         api<Application[]>('/applications'),
@@ -43,6 +42,7 @@ export function App() {
       setApplications(records);
       setActivities(history);
     }
+    setSession(current);
   }, []);
   useEffect(() => {
     load()
@@ -218,8 +218,11 @@ export function App() {
         {session.demo && (
           <div className="demo-banner">
             <span className="demo-tag">DEMO</span>
+            {session.relativeDates && <span>Sample dates are relative to today.</span>}
             <span>Fictional companies and applications. Explore freely; changes are disabled.</span>
-            <span className="demo-end">Built by adaalrf</span>
+            <a className="demo-end" href="https://adaalrf.dev/work/anq-next-step/">
+              A project by Martin Røed Flyum
+            </a>
           </div>
         )}
         <div className="page-heading">
@@ -249,7 +252,7 @@ export function App() {
             }}
           >
             <Icon name="plus" size={18} />
-            Add application
+            Add application{session.demo && ' · Disabled in demo'}
           </button>
         </div>
         {error && !modal && (

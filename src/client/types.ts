@@ -1,6 +1,7 @@
 import type { Application } from '../shared/model.js';
 export type Session = {
   demo: boolean;
+  relativeDates?: boolean;
   authenticated: boolean;
   username: string;
 };

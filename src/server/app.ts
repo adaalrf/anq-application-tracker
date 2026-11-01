@@ -1,3 +1,4 @@
+import { demoDateShiftDays, projectDemoDates } from './demo-dates.js';
 import Fastify from 'fastify';
 import cookie from '@fastify/cookie';
 import rateLimit from '@fastify/rate-limit';
@@ -41,6 +42,12 @@ export async function createApp(
     requestTimeout: 15_000,
     loggerInstance: undefined,
   });
+  // Only the explicitly configured read-only demo projects dates. Owner data is unchanged.
+  app.addHook('preSerialization', async (request, _reply, payload) =>
+    config.demo && request.url.startsWith('/api/')
+      ? projectDemoDates(payload, demoDateShiftDays(config.demoDateAnchor))
+      : payload,
+  );
   await app.register(cookie);
   await app.register(rateLimit, { global: false });
   app.setErrorHandler((error, request, reply) => {
@@ -97,6 +104,7 @@ export async function createApp(
   });
   app.get('/api/session', async (request) => ({
     demo: config.demo,
+    relativeDates: Boolean(config.demoDateAnchor),
     authenticated: !config.demo && (await authenticated(request)),
     username: config.username,
   }));
