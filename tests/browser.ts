@@ -50,6 +50,7 @@ try {
   const page = await context.newPage();
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(config.origin);
+  await expect(page.getByLabel('Username', { exact: true })).toHaveValue('');
   await page.getByLabel('Username', { exact: true }).fill('owner');
   await page.getByLabel('Password', { exact: true }).fill('browser-test-password');
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();

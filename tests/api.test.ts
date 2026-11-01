@@ -459,3 +459,18 @@ test('demo seeding shows application materials and refuses to replace existing c
     await admin.query(`DROP SCHEMA ${demoSchema} CASCADE`);
   }
 });
+
+test('signed-out session does not disclose the configured username', async () => {
+  const session = (await app.inject('/api/session')).json();
+  assert.equal(session.authenticated, false);
+  assert.equal(Object.hasOwn(session, 'username'), false);
+  const demo = await createApp(
+    pool,
+    loadConfig({ DATABASE_URL: 'test', DEMO_MODE: 'true', OWNER_USERNAME: 'private-owner' }),
+  );
+  try {
+    assert.equal(Object.hasOwn((await demo.inject('/api/session')).json(), 'username'), false);
+  } finally {
+    await demo.close();
+  }
+});

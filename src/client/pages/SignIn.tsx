@@ -29,7 +29,7 @@ export function SignIn({
               required
               autoComplete="username"
               maxLength={80}
-              defaultValue={session.username}
+              defaultValue={session.username || ''}
             />
           </Field>
           <Field label="Password">

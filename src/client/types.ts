@@ -3,7 +3,7 @@ export type Session = {
   demo: boolean;
   relativeDates?: boolean;
   authenticated: boolean;
-  username: string;
+  username?: string;
 };
 export type View = 'applications' | 'followups' | 'activity';
 export type Modal =
