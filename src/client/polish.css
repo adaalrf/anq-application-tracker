@@ -43,10 +43,6 @@
 .sidebar .theme-control:focus-visible {
   outline-color: var(--color-sidebar-muted);
 }
-.login-appearance {
-  display: flex;
-  justify-content: flex-end;
-}
 @media (min-width: 651px) {
   .navigation-shell .logo {
     margin-bottom: 12px;
