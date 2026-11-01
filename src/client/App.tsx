@@ -218,8 +218,10 @@ export function App() {
         {session.demo && (
           <div className="demo-banner">
             <span className="demo-tag">DEMO</span>
-            {session.relativeDates && <span>Sample dates are relative to today.</span>}
-            <span>Fictional companies and applications. Explore freely; changes are disabled.</span>
+            <span>
+              Fictional companies and applications. Explore freely; changes are disabled.
+              {session.relativeDates && ' Sample dates are relative to today.'}
+            </span>
             <a className="demo-end" href="https://adaalrf.dev/work/anq-next-step/">
               A project by Martin Røed Flyum
             </a>

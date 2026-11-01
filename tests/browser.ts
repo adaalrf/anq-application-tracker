@@ -159,7 +159,14 @@ try {
   assert.equal(saved.nextAction, 'Prepare interview examples');
   await page.getByRole('button', { name: 'Sign out', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Sign in', exact: true })).toBeVisible();
-  const demo = await createApp(pool, loadConfig({ DATABASE_URL: 'test', DEMO_MODE: 'true' }));
+  const demo = await createApp(
+    pool,
+    loadConfig({
+      DATABASE_URL: 'test',
+      DEMO_MODE: 'true',
+      DEMO_DATE_ANCHOR: new Date().toISOString().slice(0, 10),
+    }),
+  );
   apps.push(demo);
   const demoOrigin = await demo.listen({ host: '127.0.0.1', port: 0 });
   let releaseRecords!: () => void;
@@ -253,6 +260,8 @@ try {
     );
   }
   await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByRole('link', { name: 'A project by Martin Røed Flyum' })).toBeVisible();
+  await expect(page.getByText(/Sample dates are relative to today/)).toBeVisible();
   await page.screenshot({
     path: 'test-results/screenshots/pipeline-mobile.png',
     fullPage: true,
