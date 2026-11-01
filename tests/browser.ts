@@ -205,9 +205,9 @@ try {
     })),
     [],
   );
-  await mkdir('docs/screenshots', { recursive: true });
+  await mkdir('test-results/screenshots', { recursive: true });
   await page.screenshot({
-    path: 'docs/screenshots/pipeline-desktop.png',
+    path: 'test-results/screenshots/pipeline-desktop.png',
     fullPage: true,
   });
   for (const width of [390, 768]) {
@@ -220,7 +220,7 @@ try {
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({
-    path: 'docs/screenshots/pipeline-mobile.png',
+    path: 'test-results/screenshots/pipeline-mobile.png',
     fullPage: true,
   });
   await workspaceLink(page, 'Activity');
