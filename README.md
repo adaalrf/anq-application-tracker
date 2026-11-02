@@ -2,18 +2,30 @@
 
 [![Checks](https://github.com/adaalrf/anq-application-tracker/actions/workflows/check.yml/badge.svg)](https://github.com/adaalrf/anq-application-tracker/actions/workflows/check.yml)
 
-A private, single-owner job application tracker built with React, TypeScript,
-Fastify and PostgreSQL. Keep applications, cover letters, conversations and the
-next action together. It does not submit applications or read your email.
+A job-application workspace for keeping a role, its cover letter and the next
+follow-up together. Forms retain entered text after failed saves, and conflicting
+edits surface for review. Built with React, TypeScript, Fastify and PostgreSQL.
 
-[Try the read-only demo](https://tracker.demo.adaalrf.dev) with fictional records.
+[Explore the read-only demo](https://tracker.demo.adaalrf.dev) · [Case study](https://adaalrf.dev/work/anq-application-tracker/) · [Source map](CONTRIBUTING.md#where-changes-belong)
+
+The demo contains fictional applications. The owner workspace uses a separate database.
 
 ![Application pipeline](docs/screenshots/pipeline-desktop.png)
 
-Navigation keeps the desktop sidebar and uses a labelled, keyboard-accessible mobile
-menu with a return-to-top control. Colours follow the device’s light/dark preference
-until the appearance switch is used; that choice is saved in the browser.
-The browser suite checks both themes and mobile navigation with fictional data.
+## Review path
+
+- [RecordDialog](src/client/components/RecordDialog.tsx) handles application materials, validation and unsaved changes.
+- [Shared model](src/shared/model.ts) defines stages and calendar-date follow-up rules.
+- [Browser workflows](tests/browser.ts) follow an application through saving, stage changes, notes and follow-ups.
+
+## How this project is developed
+
+The maintainer decides the workflow and interface direction. AI coding agents
+write and revise implementation code. The [development guide](CONTRIBUTING.md)
+sets the data and verification boundaries. Changes to saved materials, history and
+conflict handling are checked against disposable PostgreSQL and browser workflows.
+
+The [initial public release](https://github.com/adaalrf/anq-application-tracker/commit/3abb4a5) is a squashed snapshot of pre-publication development; subsequent changes are recorded incrementally.
 
 ## Run locally
 
